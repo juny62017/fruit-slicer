@@ -1,6 +1,9 @@
 var playing = false;
 var score = 0;
 var trialsleft = 3;
+var step = 0;
+var action;
+var fruits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 $(function () {
   $("#front").show();
@@ -26,6 +29,7 @@ $(function () {
     $("#startReset").html("Reset Game");
 
     addHearts();
+    startAction();
   });
 
   function addHearts() {
@@ -36,5 +40,43 @@ $(function () {
         '<img src="https://cdn.hackclub.com/019fa8c0-915b-790a-aee5-eb2b6e0d65d2/wrong.png" class="life" alt="">'
       );
     }
+  }
+
+  function startAction() {
+    chooseRandom();
+
+    $("#fruit1")
+      .show()
+      .css({
+        left: Math.round(550 * Math.random()),
+        top: -50,
+      });
+
+    step = 1 + Math.round(5 * Math.random());
+
+    action = setInterval(function () {
+      var nextTop = $("#fruit1").position().top + step;
+      $("#fruit1").css("top", nextTop);
+
+      if (nextTop > $("#fruitcontainer").height() - 50) {
+        resetFruit();
+      }
+    }, 10);
+  }
+
+  function resetFruit() {
+    clearInterval(action);
+    startAction();
+  }
+
+  function chooseRandom() {
+    var fruitNumber = fruits[Math.round(9 * Math.random())];
+
+    $("#fruit1").attr(
+      "src",
+      "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/" +
+        fruitNumber +
+        ".png"
+    );
   }
 });
