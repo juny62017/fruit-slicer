@@ -12,6 +12,18 @@
       <div id="instructions">Slice Fruits</div>
 
       <div id="fruitcontainer">
+        <div id="score">
+          <div class="scoreDisplay">
+            <img
+              src="https://cdn.hackclub.com/019fa79a-ad8e-79a3-8272-eca1488a96b6/scr.png"
+              alt=""
+            />
+            <span id="scoreValue">0</span>
+          </div>
+        </div>
+
+        <div id="trialsleft"></div>
+
         <div id="front">
           Are you ready for the ultimate slice action? <br />
           <img
@@ -19,11 +31,15 @@
             alt="Fruit logo"
           />
         </div>
+
+        <img id="fruit1" class="fruit" alt="" />
       </div>
 
       <div id="startReset">Start Game</div>
+      <div id="gameOver"></div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
