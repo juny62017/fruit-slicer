@@ -1,0 +1,80 @@
+html {
+  height: 100%;
+  background-image: url(https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/bg3%20-%20Copy.jpg);
+  background-size: cover;
+  font-family: cursive, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+#container {
+  width: 750px;
+  height: 600px;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+#instructions {
+  width: 450px;
+  height: 50px;
+  margin: 10px auto;
+  font-size: 30px;
+  background-color: #d3901d;
+  color: #2e1d11;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 20px;
+  box-shadow: 0 4px 0 #775012;
+}
+
+#fruitcontainer {
+  width: 650px;
+  height: 450px;
+  padding: 10px;
+  margin: 30px auto 20px;
+  background-image: url(https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/wood-bg2.jpg);
+  background-size: cover;
+  color: black;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 0 #4b4b4e;
+  position: relative;
+}
+
+#front {
+  width: 650px;
+  height: 450px;
+  padding: 10px;
+  margin: 30px auto 20px;
+  color: #d3901d;
+  font-size: 40px;
+  z-index: 2;
+}
+
+#front img {
+  width: 280px;
+}
+
+#startReset {
+  position: relative;
+  width: 90px;
+  padding: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  text-align: center;
+  background-color: #8d8315;
+  box-shadow: 0 4px 0 #5c5619;
+  border-radius: 5px;
+}
+
+#startReset:active {
+  top: 4px;
+  color: white;
+  background-color: #69620c;
+  box-shadow: 0 0 #5c5619;
+}
