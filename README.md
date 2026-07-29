@@ -1,4 +1,4 @@
-# 🍉 Fruit Slicer
+#  Fruit Slicer
 
 A simple  fruit slicing game made using HTML, CSS, JavaScript...
 
