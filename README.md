@@ -8,6 +8,13 @@ and try not to let them fall
 You have three lives
 and the game ends after missing three fruits.
 
+
+## THEME
+IT IS AN ENDLESS GAME
+BECAUSE THERE IS NO ENDING LEVEL... YOU JUST GO AND GO
+AND JUST THERES 3 LIVE SYSTEM SO YOU CAN PLAY SERIOUSLY 
+
+
 ## Features
 
 * THERE IS RANDOM FRUITS FALLING FROM SKY 
