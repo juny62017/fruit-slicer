@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Fruit Slicer Game</title>
+    <title>Talha - Fruit Slicer Game</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
     <link rel="icon" href="https://cdn.hackclub.com/019fa477-467d-7c4a-aff0-26f6b0a00326/splash.png" />
   </head>
   <body>
@@ -39,7 +43,19 @@
       <div id="gameOver"></div>
     </div>
 
+    <audio id="slicesound">
+      <source
+        src="https://raw.githubusercontent.com/juny62017/fruit-slicer/main/audio/slicefruit.mp3"
+        type="audio/mpeg"
+      />
+      <source
+        src="https://raw.githubusercontent.com/juny62017/fruit-slicer/main/audio/slicefruit.ogg"
+        type="audio/ogg"
+      />
+    </audio>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

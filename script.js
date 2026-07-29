@@ -32,6 +32,23 @@ $(function () {
     startAction();
   });
 
+  $("#fruit1").mouseover(function () {
+    if (!playing) {
+      return;
+    }
+
+    score++;
+    $("#scoreValue").html(score);
+
+    var sound = $("#slicesound")[0];
+    sound.currentTime = 0;
+    sound.play();
+
+    clearInterval(action);
+    $("#fruit1").hide("explode", 500);
+    setTimeout(startAction, 500);
+  });
+
   function addHearts() {
     $("#trialsleft").empty();
 
