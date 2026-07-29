@@ -3,6 +3,7 @@ var score = 0;
 var trialsleft = 3;
 var step = 0;
 var action;
+var nextFruitTimer;
 var fruits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 $(function () {
@@ -17,19 +18,7 @@ $(function () {
       return;
     }
 
-    playing = true;
-    score = 0;
-    trialsleft = 3;
-
-    $("#front").hide();
-    $("#gameOver").hide();
-    $("#score").show();
-    $("#scoreValue").html(score);
-    $("#trialsleft").show();
-    $("#startReset").html("Reset Game");
-
-    addHearts();
-    startAction();
+    startGame();
   });
 
   $("#fruit1").mouseover(function () {
@@ -45,9 +34,27 @@ $(function () {
     sound.play();
 
     clearInterval(action);
+    clearTimeout(nextFruitTimer);
+
     $("#fruit1").hide("explode", 500);
-    setTimeout(startAction, 500);
+    nextFruitTimer = setTimeout(startAction, 500);
   });
+
+  function startGame() {
+    playing = true;
+    score = 0;
+    trialsleft = 3;
+
+    $("#front").hide();
+    $("#gameOver").hide();
+    $("#score").show();
+    $("#scoreValue").html(score);
+    $("#trialsleft").show();
+    $("#startReset").html("Reset Game");
+
+    addHearts();
+    startAction();
+  }
 
   function addHearts() {
     $("#trialsleft").empty();
@@ -60,9 +67,14 @@ $(function () {
   }
 
   function startAction() {
+    if (!playing) {
+      return;
+    }
+
     chooseRandom();
 
     $("#fruit1")
+      .stop(true, true)
       .show()
       .css({
         left: Math.round(550 * Math.random()),
@@ -76,14 +88,24 @@ $(function () {
       $("#fruit1").css("top", nextTop);
 
       if (nextTop > $("#fruitcontainer").height() - 50) {
-        resetFruit();
+        missedFruit();
       }
     }, 10);
   }
 
-  function resetFruit() {
+  function missedFruit() {
     clearInterval(action);
-    startAction();
+
+    if (trialsleft > 1) {
+      trialsleft--;
+      addHearts();
+      startAction();
+      return;
+    }
+
+    trialsleft = 0;
+    addHearts();
+    endGame();
   }
 
   function chooseRandom() {
@@ -95,5 +117,19 @@ $(function () {
         fruitNumber +
         ".png"
     );
+  }
+
+  function endGame() {
+    playing = false;
+    clearInterval(action);
+    clearTimeout(nextFruitTimer);
+
+    $("#fruit1").hide();
+    $("#score").hide();
+    $("#trialsleft").hide();
+    $("#startReset").html("Start Game");
+    $("#gameOver")
+      .show()
+      .html("<p>Game Over!</p><p>Your score is " + score + "</p>");
   }
 });
